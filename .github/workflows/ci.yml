@@ -1,0 +1,68 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  VECLIB_MAXIMUM_THREADS: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  installed-package:
+    name: Wheel / ${{ matrix.os }} / Python ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.13'
+          - os: macos-15
+            python: '3.13'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Build source distribution and wheel
+        run: |
+          python -m pip install build twine
+          python -m build
+          python -m twine check dist/*
+      - name: Install wheel with validation dependencies
+        run: |
+          python -m pip install $(find dist -name '*.whl')
+          python -m pip install pytest ruff sympy matplotlib
+      - name: Test installed wheel from outside checkout
+        working-directory: ${{ runner.temp }}
+        run: |
+          python -c "import freudenthal; assert 'site-packages' in freudenthal.__file__; print(freudenthal.__file__)"
+          python -m pytest "$GITHUB_WORKSPACE/test" -p no:cacheprovider
+          python "$GITHUB_WORKSPACE/examples/quickstart.py" --save "$RUNNER_TEMP/quickstart-basis"
+      - name: Lint public interface, examples and drivers
+        run: python -m ruff check src/freudenthal test examples numerical_case/*.py verify_all.py
+      - name: Recompute one geometry example and render figures
+        run: |
+          python numerical_case/run_example.py --output "$RUNNER_TEMP/local-example"
+          python numerical_case/plot_results.py --input "$RUNNER_TEMP/local-example" --reference numerical_case/reference --output "$RUNNER_TEMP/example-figures"
+  certificate-replay:
+    name: Exact certificate replay / Linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install package and symbolic dependency
+        run: python -m pip install . sympy
+      - name: Replay fixed witnesses from installed package
+        run: |
+          python -c "import freudenthal; assert 'site-packages' in freudenthal.__file__"
+          python verify_all.py --output "$RUNNER_TEMP/certificate-replay"

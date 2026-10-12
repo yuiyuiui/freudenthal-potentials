@@ -1,0 +1,9 @@
+{
+  "public_source_revision": "f69a9853cae1afc0f82ee4f466c5a53b30709f9a",
+  "source_url": "https://github.com/yuiyuiui/AIM/tree/f69a9853cae1afc0f82ee4f466c5a53b30709f9a/research/solutions/633-kaiwen-jin-freudenthal-potentials/numerical_case/summaries",
+  "files": {
+    "paper_cases.json": "5818de434fa0cb7b4614a7570e7c8ff05e5b282755368c11361a0bacc1f4fe53",
+    "sparsity_histograms.json": "96cc7ff200094d12a46e1a920587fd529f3167618b2a745607d203d9f425a49d"
+  },
+  "interpretation": "Existing exact construction cases; runtime observations are not used in the figures."
+}

@@ -1,0 +1,9 @@
+include README.md LICENSE NOTICE.md CITATION.cff CHANGELOG.md requirements-lock.txt verify_all.py
+include .gitignore .github/workflows/ci.yml
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include test *.py
+recursive-include src/freudenthal *.py *.cpp *.md *.json *.gz *.zip
+recursive-include numerical_case *.py *.json *.md *.svg *.pdf *.npz
+prune numerical_case/results
+global-exclude *.py[cod]

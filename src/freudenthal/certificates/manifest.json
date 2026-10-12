@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "all_degree_rules_uncompressed_sha256": "5c221381001ebbfbdfa7fbcbe06d911309dff21e1a91ae740f5369b25bd28994",
+  "files": {
+    "verification_data.zip": {
+      "sha256": "32c3c6847241288a4607d699e68ac7fbbdae3378e4057531c44a94274f85f7c7",
+      "bytes": 7489779
+    },
+    "all_degree_rules.json.gz": {
+      "sha256": "43d45cfd9394befe130b7e5e27f22851369e0adaf0669f8526e3d8156bc7b5ee",
+      "bytes": 970778
+    }
+  }
+}

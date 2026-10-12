@@ -1,0 +1,99 @@
+{
+  "format_version": 1,
+  "parameters": {
+    "N": 2,
+    "degree": 7,
+    "resolution": 17
+  },
+  "selection": "widest nonzero-curl tetrahedral support at center owner; lowest-ID tie",
+  "source_sha256": "44d5291ec1112645c1bbec1125be8526d1b414746514fe597438d38f2f2e855b",
+  "package_version": "0.1.0",
+  "implementation": {
+    "implementation_sha256": "585e2024823b5069941ffcf2f53c19c093db52b6c52f7687ebcfe3403586f38b",
+    "files": {
+      "freudenthal/__init__.py": "b02f8d5f6fb39f5d79bdffc61c7da0d7baa5dbe917dd1933fb63f08ecb59a08c",
+      "freudenthal/_certificate_check/all_degree/src/construct_basis.py": "e39a1da294301e8dcd6bad29959e9ca078ae91367bd27bca5d4d4acca0712cd5",
+      "freudenthal/_certificate_check/all_degree/src/dimension_all_degrees.py": "04941613091eab2e77c440b1638cda65e0c64959527af91ae7efac72c696db9f",
+      "freudenthal/_certificate_check/all_degree/src/discover_rules.py": "51a0df835d2ca25243f80151451eb7de27bb0a75ba92eb2a6603537108313fa6",
+      "freudenthal/_certificate_check/all_degree/src/exact_parameter_check.cpp": "9fe78971a93c2a4a0bbe0e56abe8b7dc11b9909e4123debad8df77b9785aa565",
+      "freudenthal/_certificate_check/all_degree/src/legacy_geometry.py": "81d3dbe3771e8cde27b4c9a3a58a03f86895f2ccc0a65b406f5ee14669814564",
+      "freudenthal/_certificate_check/all_degree/src/verify_symbolic_sources.py": "2a0bc98a6e39fe25babd6157a6a3b44c84bff3a06a69469e37a28742e97026c9",
+      "freudenthal/_certificate_check/all_degree/verify_all.py": "1f8c1017881a578444d884ecdb30fed99853a76e53ae4c9d878eb85ec7f91654",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/algebra.py": "d296bb9ed8e2d2c1968e97af3fb5ccd894da33b9f7a16c3253fbcff9d7b83b57",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/basis_order_search.py": "36b9690e4367bcf4c2078cf12d0fd8b1128e6417381f07af3f33564819934013",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/benchmark_rank.py": "d9be4c5086e541c7c0fc63e08104e17ee554c7aaab2810408ce9a31fcf615a12",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/certificates.py": "653faff445466fccdd6d8f8be15189a47a9f65adbe7fac4bbf0e84220ba39865",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/degree_experiments.py": "4ff79bce4addf3f62688b5f4a172360b610bbb836e499d03accd836d56a633e9",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/entity_spans.py": "b7eef103628ba618df58e084b8862591c894c3458f8dcedeee78d2c9486f4bcf",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/experiment_core.py": "32f9ab05455db0b7253f29933833df994e52fdb6f4df781f8fca460e277cedb0",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/family_benchmarks.py": "d35a23ed72e607e14921c3195ff1332f6e7585f7f2b9cb7b715b684bdac60d6a",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/geometry.py": "81d3dbe3771e8cde27b4c9a3a58a03f86895f2ccc0a65b406f5ee14669814564",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/inspect_structure.py": "414bf000c21fb70dc89051ae9591d1a633e8c4470c45f2c86dce42feec06cbba",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/interior_primitives.py": "0449376297ebc3a0bed7b9805f610331f94d209ddd0e345fa5fbca425ff6139f",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/load_basis.py": "7b4b3a4f6347b1a55fdb771f061f118833f5d43ae966c5f83b61e89417625546",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/native_rank.cpp": "a86d918461b24425e72fc6fd03212fbf5cc38b63785eba56cfa60570d6ccdc89",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/native_rank.py": "4e481aa40b00d53521d00ef0de9e329848e9e007532bfc79bc3ce53753c5fb57",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/numerical_diagnostics.py": "a81364395cfd160d138cbcbd149da3a981499fb8a64538170191337411e892b6",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/plot_results.py": "ae901b3686e0e44bc4d4dcbfb9763612de58ff2a7d137e1e4873a395da505874",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/polynomial_seed_global.py": "9e6b43406eb63fd0c7d67fe029b6f79b0337ecac837ae60591bc0925246fb135",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/primitive_global_role.py": "9c9f91a290b84671d58e74392946758746fb7a27f201afb9ab1ca4dc871fc9ab",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/run_sweep.py": "b27c7fffc2846db5056c35f3f6b85266af35f39d6bb136907545ed1d789734a0",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/test_core.py": "5efe885dcad9b36a852e8d7f03b9f147371f19f30cc31664e7bbcf00c6ba55e8",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/transformations.py": "8b4d77ea43afec29a11df2493510c4b136a04ad0f4c987fccb7bbee94a5b5605",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/verify_local_templates.py": "e0ce8af990f9c586180b801e767ab91125f3606af37c775f9a9afb7269dba5db",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/verify_saved.py": "042ab0bcf0bb984da6c8b49062371eca5f2135a5e82abbac046cf5d0de71c809",
+      "freudenthal/_certificate_check/critical/src/certify_repairs.py": "51b44d02ad5846736e4762fd661cf554574aa6f64fa7e850b43d7614e274a38a",
+      "freudenthal/_certificate_check/critical/src/certify_uniform_normalform.py": "5666f8b2974b9375b6561765d7de4bdcee7f1d35d1d2a46b5caf792508b48436",
+      "freudenthal/_certificate_check/critical/src/dimension_polynomial.py": "26d92915d2d1dfdbf6b44701fd5a003a2cd799892023512ca9011af39546f483",
+      "freudenthal/_certificate_check/critical/src/normalform_geometry.py": "11e84b353e321f614fff30903f00f01ec777c3a3907d710c8cc029c021bd899f",
+      "freudenthal/_certificate_check/critical/src/repair_nonlocal.py": "699c67b4a970d6e76820f50885105b7cfc33905356f7660830311cb1f418db6a",
+      "freudenthal/_certificate_check/critical/src/template_signatures.py": "7769e98c1484901ff59cd71dd05f15b499b2acd6e5209b10bedfb3cab4a39b66",
+      "freudenthal/_certificate_check/critical/src/tracked_rref.py": "7b34f856c583f41760c987bbf65829e5189be13e8fd4e3e4dfbc6e3927dfba6a",
+      "freudenthal/_certificate_check/critical/src/transport_regression.py": "c585d932c00758512849cb3537fa45c7fa1638ee8de819f8f95101e57934577b",
+      "freudenthal/_certificate_check/critical/src/verify_repairs.py": "7c884c3c87d12c12e34bfcec64eb035dda1a061b275e52c0dda0637350ccc557",
+      "freudenthal/_certificate_check/critical/verify_all.py": "41d6db58e2cc30b4e03cc807f1ee543cfbf42e30e749354dd04a10a778bd210d",
+      "freudenthal/algebra.py": "fe58b456e915465c73f336b2f824be0859a235413c3bbe2aa27e4b1f7bdea05b",
+      "freudenthal/basis.py": "f007c9a15715b5ab0ebc5f1adb7f62b1e83536cb259750bb392a97a386330636",
+      "freudenthal/certificates/all_degree_rules.json.gz": "43d45cfd9394befe130b7e5e27f22851369e0adaf0669f8526e3d8156bc7b5ee",
+      "freudenthal/certificates/manifest.json": "fd0f4bf38edac17abd51d3d54847cb149ab26e8d582761554c53bce400c8bc2b",
+      "freudenthal/certificates/verification_data.zip": "32c3c6847241288a4607d699e68ac7fbbdae3378e4057531c44a94274f85f7c7",
+      "freudenthal/data.py": "cb8c5f6d0d1909f992242bd167cc67b9e7f7bc76069df9a3fd99f45a9ff1c3a6",
+      "freudenthal/exact.py": "90dd99253a2fd82c5c6217951c83206775dba62fb208478639ed51ca0ff58c32",
+      "freudenthal/geometry.py": "a0c3baca09999a6899332e1167a8faf3fbbfc0742fa88224957f3e9f35b3bdc3",
+      "freudenthal/provenance.py": "985a1395079d6fdc2086859894b480a06669f614e996febac24a46503272e52d",
+      "freudenthal/rules.py": "87bac38413e0d478d31e4958b2fca9e1fd1b25a4e15dc81975609e62b031e96e",
+      "freudenthal/verification.py": "7f1884ba9e922e2d204ad70a341394229dabe360f9e61bdae5f3700d19e32448"
+    },
+    "certificates": {
+      "format_version": 1,
+      "all_degree_rules_uncompressed_sha256": "5c221381001ebbfbdfa7fbcbe06d911309dff21e1a91ae740f5369b25bd28994",
+      "files": {
+        "verification_data.zip": {
+          "sha256": "32c3c6847241288a4607d699e68ac7fbbdae3378e4057531c44a94274f85f7c7",
+          "bytes": 7489779
+        },
+        "all_degree_rules.json.gz": {
+          "sha256": "43d45cfd9394befe130b7e5e27f22851369e0adaf0669f8526e3d8156bc7b5ee",
+          "bytes": 970778
+        }
+      }
+    }
+  },
+  "python": "3.13.3",
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "randomness": "none",
+  "files": {
+    "geometry.json": "b0ff06c1686e0f26fc8384ca1510ae3515790748f924dd2fa6eb21fed0bd79ae",
+    "slice.npz": "7c9d614c21ea5052e4330e128fe723999918bf5dac2d0468b967dbbe79c86010",
+    "summary.json": "0f69cced7c0ee0751f171bd1f47843d3060b88d1b1022d39c312f96895a837df"
+  },
+  "retention": "Only compact geometry, sampled slice and summary are distributed; full basis files remain generated local outputs."
+}

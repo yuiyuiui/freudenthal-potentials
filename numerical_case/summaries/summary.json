@@ -1,0 +1,31 @@
+{
+  "construction": "parametric rules",
+  "canonical_free_identity": true,
+  "exact_checks_passed": true,
+  "all_curl_components_residual_nnz": 0,
+  "all_rows_vertex_local": true,
+  "independent_rows": 6792,
+  "N": 2,
+  "potential_degree": 7,
+  "k": 6,
+  "dimension": 6792,
+  "variables": 10125,
+  "basis_nnz": 35712,
+  "max_abs_coefficient": 3,
+  "selected_basis_id": 1,
+  "owner_vertex": 13,
+  "owner_physical_point": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "support_tetrahedra_count": 24,
+  "owner_star_tetrahedra_count": 24,
+  "curl_support_tetrahedra_count": 24,
+  "slice_z": 0.875,
+  "resolution": 17,
+  "slice_max_potential_magnitude": 0.011613532419372394,
+  "slice_max_curl_magnitude": 0.4046216756538576,
+  "outside_support_centroid_nonzero_values": 0,
+  "evidence_scope": "one finite basis instance and binary64 slice evaluation"
+}

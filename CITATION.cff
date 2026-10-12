@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite this software and the associated manuscript when using the construction in research."
+type: software
+title: "Freudenthal Potentials"
+version: 0.1.0
+date-released: 2026-10-13
+authors:
+  - family-names: Jin
+    given-names: Kaiwen
+    email: yui.ui.siki@gmail.com
+repository-code: "https://github.com/yuiyuiui/freudenthal-potentials"
+url: "https://github.com/yuiyuiui/freudenthal-potentials"
+license: MIT
+abstract: "Reusable integer construction and finite checks of vertex-star-supported continuous polynomial potentials with continuous curl on consistently oriented Freudenthal cube meshes."

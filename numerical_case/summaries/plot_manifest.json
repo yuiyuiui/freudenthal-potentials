@@ -1,0 +1,62 @@
+{
+  "source_sha256": "b18cdd938b53fea90bc5848a20b7234efe5dc2f9d89d64dc8c120f598b3e6789",
+  "run_manifest_sha256": "d064a27160021ffdb4efd38a315f38116b8c4417dd48c5b1e49d2529b910af3f",
+  "reference_provenance_sha256": "c50b2281399b7396afe6819bb42411b42598dd4c741bb9f1527a715c1614f57a",
+  "basis_summary": {
+    "construction": "parametric rules",
+    "canonical_free_identity": true,
+    "exact_checks_passed": true,
+    "all_curl_components_residual_nnz": 0,
+    "all_rows_vertex_local": true,
+    "independent_rows": 6792,
+    "N": 2,
+    "potential_degree": 7,
+    "k": 6,
+    "dimension": 6792,
+    "variables": 10125,
+    "basis_nnz": 35712,
+    "max_abs_coefficient": 3,
+    "selected_basis_id": 1,
+    "owner_vertex": 13,
+    "owner_physical_point": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "support_tetrahedra_count": 24,
+    "owner_star_tetrahedra_count": 24,
+    "curl_support_tetrahedra_count": 24,
+    "slice_z": 0.875,
+    "resolution": 17,
+    "slice_max_potential_magnitude": 0.011613532419372394,
+    "slice_max_curl_magnitude": 0.4046216756538576,
+    "outside_support_centroid_nonzero_values": 0,
+    "evidence_scope": "one finite basis instance and binary64 slice evaluation"
+  },
+  "histogram_metrics": {
+    "6": {
+      "mean_scalar_nonzeros": 9.243673090318087,
+      "max_scalar_nonzeros": 69,
+      "rows": 25842
+    },
+    "7": {
+      "mean_scalar_nonzeros": 6.9856694417906375,
+      "max_scalar_nonzeros": 69,
+      "rows": 43962
+    }
+  },
+  "figure_files": {
+    "basis_structure.pdf": "c1a3f0707e1b1a121d2357cebd5cd2cf8b400346d6404191abc6de8b7a47e584",
+    "basis_structure.svg": "7da1d60af0f1ee8a4aa03843ced9175ac19e14a8fbb48fecb89e2992c2c5fd2e",
+    "potential_curl.pdf": "ec94729adea9f1849b78a250f8d316ad10f55a1a3c3caad4c6388ef29034c620",
+    "potential_curl.svg": "8c0adcc5c9e8d6ff329aa78ec779256759a960737aff51a0ed55f82ef0902ddd",
+    "vertex_star.pdf": "a97965e13513b45bf5c26d9b013461703d31356fe826b74600bb62686ebb35a3",
+    "vertex_star.svg": "626ba4c7f915464eea301f49b3e0ea3c448a89a5b0c14e14ffbde5c74cec3cef"
+  },
+  "mathematical_scope": "Exact support and finite construction diagnostics; no stability or speed claim",
+  "run_parameters": {
+    "N": 2,
+    "degree": 7,
+    "resolution": 17
+  }
+}
