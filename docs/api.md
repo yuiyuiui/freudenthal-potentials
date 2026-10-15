@@ -1,7 +1,9 @@
 # Public API
 
 Import the public objects from `freudenthal`. Indices are zero-based;
-array component order is `(x,y,z)`.
+array component order is `(x,y,z)`. The supported surface is the top-level
+exports and the documented methods; other module helpers are implementation
+details, not additional tuning APIs.
 The full [parameter contract](parameters.md) specifies every input, actual
 default, selection reason, recommendation, cost consequence and failure mode.
 

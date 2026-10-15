@@ -1,0 +1,1213 @@
+{
+  "format_version": 1,
+  "software_version": "0.2.0",
+  "source_commit": "183d02d14f107cf87b44b30bf25b573e451c915c",
+  "working_tree_dirty": false,
+  "driver_sha256": "7129bbb2ef7d28512f9f98272c29d87d37a3fc5043b194440f3568a03b12486d",
+  "implementation": {
+    "implementation_sha256": "eacbc196eb3778de6e1310e7ef5e6961c2022a3bc6093809f0041cb9090ffea1",
+    "files": {
+      "freudenthal/__init__.py": "fc4146a93b2dec6615628746037224886ca09927e2ca70083f12befeead26b65",
+      "freudenthal/__main__.py": "046f07bd7958a88015034f534f86f7df43e87c64232f94957451d76aa3434a28",
+      "freudenthal/_certificate_check/all_degree/src/construct_basis.py": "e39a1da294301e8dcd6bad29959e9ca078ae91367bd27bca5d4d4acca0712cd5",
+      "freudenthal/_certificate_check/all_degree/src/dimension_all_degrees.py": "04941613091eab2e77c440b1638cda65e0c64959527af91ae7efac72c696db9f",
+      "freudenthal/_certificate_check/all_degree/src/discover_rules.py": "51a0df835d2ca25243f80151451eb7de27bb0a75ba92eb2a6603537108313fa6",
+      "freudenthal/_certificate_check/all_degree/src/exact_parameter_check.cpp": "9fe78971a93c2a4a0bbe0e56abe8b7dc11b9909e4123debad8df77b9785aa565",
+      "freudenthal/_certificate_check/all_degree/src/legacy_geometry.py": "81d3dbe3771e8cde27b4c9a3a58a03f86895f2ccc0a65b406f5ee14669814564",
+      "freudenthal/_certificate_check/all_degree/src/verify_symbolic_sources.py": "2a0bc98a6e39fe25babd6157a6a3b44c84bff3a06a69469e37a28742e97026c9",
+      "freudenthal/_certificate_check/all_degree/verify_all.py": "1f8c1017881a578444d884ecdb30fed99853a76e53ae4c9d878eb85ec7f91654",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/algebra.py": "d296bb9ed8e2d2c1968e97af3fb5ccd894da33b9f7a16c3253fbcff9d7b83b57",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/basis_order_search.py": "36b9690e4367bcf4c2078cf12d0fd8b1128e6417381f07af3f33564819934013",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/benchmark_rank.py": "d9be4c5086e541c7c0fc63e08104e17ee554c7aaab2810408ce9a31fcf615a12",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/certificates.py": "653faff445466fccdd6d8f8be15189a47a9f65adbe7fac4bbf0e84220ba39865",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/degree_experiments.py": "4ff79bce4addf3f62688b5f4a172360b610bbb836e499d03accd836d56a633e9",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/entity_spans.py": "b7eef103628ba618df58e084b8862591c894c3458f8dcedeee78d2c9486f4bcf",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/experiment_core.py": "32f9ab05455db0b7253f29933833df994e52fdb6f4df781f8fca460e277cedb0",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/family_benchmarks.py": "d35a23ed72e607e14921c3195ff1332f6e7585f7f2b9cb7b715b684bdac60d6a",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/geometry.py": "81d3dbe3771e8cde27b4c9a3a58a03f86895f2ccc0a65b406f5ee14669814564",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/inspect_structure.py": "414bf000c21fb70dc89051ae9591d1a633e8c4470c45f2c86dce42feec06cbba",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/interior_primitives.py": "0449376297ebc3a0bed7b9805f610331f94d209ddd0e345fa5fbca425ff6139f",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/load_basis.py": "7b4b3a4f6347b1a55fdb771f061f118833f5d43ae966c5f83b61e89417625546",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/native_rank.cpp": "a86d918461b24425e72fc6fd03212fbf5cc38b63785eba56cfa60570d6ccdc89",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/native_rank.py": "4e481aa40b00d53521d00ef0de9e329848e9e007532bfc79bc3ce53753c5fb57",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/numerical_diagnostics.py": "a81364395cfd160d138cbcbd149da3a981499fb8a64538170191337411e892b6",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/plot_results.py": "ae901b3686e0e44bc4d4dcbfb9763612de58ff2a7d137e1e4873a395da505874",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/polynomial_seed_global.py": "9e6b43406eb63fd0c7d67fe029b6f79b0337ecac837ae60591bc0925246fb135",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/primitive_global_role.py": "9c9f91a290b84671d58e74392946758746fb7a27f201afb9ab1ca4dc871fc9ab",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/run_sweep.py": "b27c7fffc2846db5056c35f3f6b85266af35f39d6bb136907545ed1d789734a0",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/test_core.py": "5efe885dcad9b36a852e8d7f03b9f147371f19f30cc31664e7bbcf00c6ba55e8",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/transformations.py": "8b4d77ea43afec29a11df2493510c4b136a04ad0f4c987fccb7bbee94a5b5605",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/verify_local_templates.py": "e0ce8af990f9c586180b801e767ab91125f3606af37c775f9a9afb7269dba5db",
+      "freudenthal/_certificate_check/critical/aim633_experiments/src/verify_saved.py": "042ab0bcf0bb984da6c8b49062371eca5f2135a5e82abbac046cf5d0de71c809",
+      "freudenthal/_certificate_check/critical/src/certify_repairs.py": "51b44d02ad5846736e4762fd661cf554574aa6f64fa7e850b43d7614e274a38a",
+      "freudenthal/_certificate_check/critical/src/certify_uniform_normalform.py": "5666f8b2974b9375b6561765d7de4bdcee7f1d35d1d2a46b5caf792508b48436",
+      "freudenthal/_certificate_check/critical/src/dimension_polynomial.py": "26d92915d2d1dfdbf6b44701fd5a003a2cd799892023512ca9011af39546f483",
+      "freudenthal/_certificate_check/critical/src/normalform_geometry.py": "11e84b353e321f614fff30903f00f01ec777c3a3907d710c8cc029c021bd899f",
+      "freudenthal/_certificate_check/critical/src/repair_nonlocal.py": "699c67b4a970d6e76820f50885105b7cfc33905356f7660830311cb1f418db6a",
+      "freudenthal/_certificate_check/critical/src/template_signatures.py": "7769e98c1484901ff59cd71dd05f15b499b2acd6e5209b10bedfb3cab4a39b66",
+      "freudenthal/_certificate_check/critical/src/tracked_rref.py": "7b34f856c583f41760c987bbf65829e5189be13e8fd4e3e4dfbc6e3927dfba6a",
+      "freudenthal/_certificate_check/critical/src/transport_regression.py": "c585d932c00758512849cb3537fa45c7fa1638ee8de819f8f95101e57934577b",
+      "freudenthal/_certificate_check/critical/src/verify_repairs.py": "7c884c3c87d12c12e34bfcec64eb035dda1a061b275e52c0dda0637350ccc557",
+      "freudenthal/_certificate_check/critical/verify_all.py": "41d6db58e2cc30b4e03cc807f1ee543cfbf42e30e749354dd04a10a778bd210d",
+      "freudenthal/algebra.py": "fe58b456e915465c73f336b2f824be0859a235413c3bbe2aa27e4b1f7bdea05b",
+      "freudenthal/basis.py": "1578644795a9126fa36ba52350b1a60ee0575f0f1117df8548d08a5afd05273f",
+      "freudenthal/certificates/all_degree_rules.json.gz": "43d45cfd9394befe130b7e5e27f22851369e0adaf0669f8526e3d8156bc7b5ee",
+      "freudenthal/certificates/manifest.json": "fd0f4bf38edac17abd51d3d54847cb149ab26e8d582761554c53bce400c8bc2b",
+      "freudenthal/certificates/verification_data.zip": "32c3c6847241288a4607d699e68ac7fbbdae3378e4057531c44a94274f85f7c7",
+      "freudenthal/data.py": "cb8c5f6d0d1909f992242bd167cc67b9e7f7bc76069df9a3fd99f45a9ff1c3a6",
+      "freudenthal/exact.py": "90dd99253a2fd82c5c6217951c83206775dba62fb208478639ed51ca0ff58c32",
+      "freudenthal/geometry.py": "d1923b4f5151c786effb3465ef9fd090855f2e331574d4380ed0788ab1516aa9",
+      "freudenthal/policy.py": "bed5a44a4b037a6a04f8796f19a9d5a3f8b91d99e7b1b921334b1e83492fd83e",
+      "freudenthal/provenance.py": "985a1395079d6fdc2086859894b480a06669f614e996febac24a46503272e52d",
+      "freudenthal/rules.py": "87bac38413e0d478d31e4958b2fca9e1fd1b25a4e15dc81975609e62b031e96e",
+      "freudenthal/verification.py": "7f1884ba9e922e2d204ad70a341394229dabe360f9e61bdae5f3700d19e32448"
+    },
+    "certificates": {
+      "format_version": 1,
+      "all_degree_rules_uncompressed_sha256": "5c221381001ebbfbdfa7fbcbe06d911309dff21e1a91ae740f5369b25bd28994",
+      "files": {
+        "verification_data.zip": {
+          "sha256": "32c3c6847241288a4607d699e68ac7fbbdae3378e4057531c44a94274f85f7c7",
+          "bytes": 7489779
+        },
+        "all_degree_rules.json.gz": {
+          "sha256": "43d45cfd9394befe130b7e5e27f22851369e0adaf0669f8526e3d8156bc7b5ee",
+          "bytes": 970778
+        }
+      }
+    }
+  },
+  "environment": {
+    "python": "3.13.3",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sampling": {
+    "repetitions": 3,
+    "smoke": false,
+    "processes_at_once": 1,
+    "cache": "fresh process for each observation",
+    "warmup": "none: cold first requests are measured deliberately",
+    "order": "rotate configurations across repetitions",
+    "randomness": "none"
+  },
+  "timing_scope": "validated_seconds includes input-policy selection, preprocessing, construction and full checks; whole_process_seconds also includes imports and Python startup. Peak RSS is whole-process high water including imports.",
+  "comparison_contract": "All configurations finish full checks. Deferred construction alone is not compared as an equally validated result. Alternative prime may choose a different basis of the same checked space.",
+  "limitations": "One host, bounded cases, no optimality, conditioning or uniform stability claim.",
+  "all_cases_passed": true,
+  "records": [
+    {
+      "N": 1,
+      "degree": 6,
+      "configuration": "default",
+      "same_basis_as_default": true,
+      "dimension": 795,
+      "basis_nnz": 3072,
+      "csr_storage_bytes": 40048,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 6,
+          "method": "stored",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 1029,
+          "tetrahedra": 6,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.011834750068373978,
+      "peak_process_rss_bytes_max": 62521344,
+      "samples": [
+        {
+          "construction_seconds": 0.01387850008904934,
+          "deferred_verification_seconds": 2.0803418010473251e-07,
+          "validated_seconds": 0.013878708123229444,
+          "process_peak_rss_bytes": 62488576,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.16168525000102818
+        },
+        {
+          "construction_seconds": 0.011088584084063768,
+          "deferred_verification_seconds": 1.6693957149982452e-07,
+          "validated_seconds": 0.011088751023635268,
+          "process_peak_rss_bytes": 62013440,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14276629104278982
+        },
+        {
+          "construction_seconds": 0.011834500008262694,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 0.011834750068373978,
+          "process_peak_rss_bytes": 62521344,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.15987920796032995
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 6,
+      "configuration": "explicit",
+      "same_basis_as_default": true,
+      "dimension": 795,
+      "basis_nnz": 3072,
+      "csr_storage_bytes": 40048,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 6,
+          "method": "stored",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": 1029,
+          "variables": 1029,
+          "tetrahedra": 6,
+          "local_coefficients": 84,
+          "requested_method": "stored",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "Admission is capped at 1029 ambient variables; this is not a peak-RAM bound."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.01194579096045345,
+      "peak_process_rss_bytes_max": 62554112,
+      "samples": [
+        {
+          "construction_seconds": 0.01107579201925546,
+          "deferred_verification_seconds": 2.08965502679348e-07,
+          "validated_seconds": 0.011076000984758139,
+          "process_peak_rss_bytes": 62554112,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14726129197515547
+        },
+        {
+          "construction_seconds": 0.011945582926273346,
+          "deferred_verification_seconds": 2.0803418010473251e-07,
+          "validated_seconds": 0.01194579096045345,
+          "process_peak_rss_bytes": 62144512,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14216587506234646
+        },
+        {
+          "construction_seconds": 0.012207374908030033,
+          "deferred_verification_seconds": 1.25030055642128e-07,
+          "validated_seconds": 0.012207499938085675,
+          "process_peak_rss_bytes": 61898752,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.15763612498994917
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 6,
+      "configuration": "modular-reference",
+      "same_basis_as_default": true,
+      "dimension": 795,
+      "basis_nnz": 3072,
+      "csr_storage_bytes": 40048,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 6,
+          "method": "stored",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000033,
+          "max_variables": null,
+          "variables": 1029,
+          "tetrahedra": 6,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "modular",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "Explicit modular verification selected; any canonical identity is also checked.",
+            "The supported alternate prime was requested for an exact arithmetic cross-check; no retry.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000033
+        }
+      },
+      "validated_seconds_median": 0.011148667079396546,
+      "peak_process_rss_bytes_max": 62455808,
+      "samples": [
+        {
+          "construction_seconds": 0.011148500023409724,
+          "deferred_verification_seconds": 1.6705598682165146e-07,
+          "validated_seconds": 0.011148667079396546,
+          "process_peak_rss_bytes": 62111744,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.1418738750508055
+        },
+        {
+          "construction_seconds": 0.01097929198294878,
+          "deferred_verification_seconds": 2.0803418010473251e-07,
+          "validated_seconds": 0.010979500017128885,
+          "process_peak_rss_bytes": 62455808,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14171595789957792
+        },
+        {
+          "construction_seconds": 0.011279500089585781,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 0.011279750149697065,
+          "process_peak_rss_bytes": 62357504,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.13805512501858175
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 6,
+      "configuration": "deferred-then-verify",
+      "same_basis_as_default": true,
+      "dimension": 795,
+      "basis_nnz": 3072,
+      "csr_storage_bytes": 40048,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 6,
+          "method": "stored",
+          "verify": false,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 1029,
+          "tetrahedra": 6,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": false,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Optional full verification is deferred; mandatory constructor checks remain enabled.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.011385374004021287,
+      "peak_process_rss_bytes_max": 62472192,
+      "samples": [
+        {
+          "construction_seconds": 0.006019624997861683,
+          "deferred_verification_seconds": 0.005088750040158629,
+          "validated_seconds": 0.011108375038020313,
+          "process_peak_rss_bytes": 62357504,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14190583396703005
+        },
+        {
+          "construction_seconds": 0.0062281659338623285,
+          "deferred_verification_seconds": 0.0051572080701589584,
+          "validated_seconds": 0.011385374004021287,
+          "process_peak_rss_bytes": 62160896,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14403804193716496
+        },
+        {
+          "construction_seconds": 0.007094415952451527,
+          "deferred_verification_seconds": 0.004798750043846667,
+          "validated_seconds": 0.011893165996298194,
+          "process_peak_rss_bytes": 62472192,
+          "coefficient_and_owner_sha256": "0836465c2193db50e0d2dde227e190015f945beb92d9960d7b289df98a282fff",
+          "csr_storage_bytes": 40048,
+          "whole_process_seconds": 0.14745016698725522
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 7,
+      "configuration": "default",
+      "same_basis_as_default": true,
+      "dimension": 1221,
+      "basis_nnz": 10774,
+      "csr_storage_bytes": 134176,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 7,
+          "method": "one-cube",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 1536,
+          "tetrahedra": 6,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "One cube at degree>6 requires checked kernel reconstruction.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.03579458186868578,
+      "peak_process_rss_bytes_max": 56393728,
+      "samples": [
+        {
+          "construction_seconds": 0.0352997079025954,
+          "deferred_verification_seconds": 2.08965502679348e-07,
+          "validated_seconds": 0.03529991686809808,
+          "process_peak_rss_bytes": 56115200,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.1809875830076635
+        },
+        {
+          "construction_seconds": 0.035794290946796536,
+          "deferred_verification_seconds": 2.909218892455101e-07,
+          "validated_seconds": 0.03579458186868578,
+          "process_peak_rss_bytes": 56344576,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.19370287493802607
+        },
+        {
+          "construction_seconds": 0.039223667001351714,
+          "deferred_verification_seconds": 2.08965502679348e-07,
+          "validated_seconds": 0.039223875966854393,
+          "process_peak_rss_bytes": 56393728,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.20666745794005692
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 7,
+      "configuration": "explicit",
+      "same_basis_as_default": true,
+      "dimension": 1221,
+      "basis_nnz": 10774,
+      "csr_storage_bytes": 134176,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 7,
+          "method": "one-cube",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": 1536,
+          "variables": 1536,
+          "tetrahedra": 6,
+          "local_coefficients": 120,
+          "requested_method": "one-cube",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "One cube at degree>6 requires checked kernel reconstruction.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "Admission is capped at 1536 ambient variables; this is not a peak-RAM bound."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.035753833944909275,
+      "peak_process_rss_bytes_max": 56672256,
+      "samples": [
+        {
+          "construction_seconds": 0.035719792009331286,
+          "deferred_verification_seconds": 2.919696271419525e-07,
+          "validated_seconds": 0.03572008397895843,
+          "process_peak_rss_bytes": 56147968,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.1792619579937309
+        },
+        {
+          "construction_seconds": 0.03575354197528213,
+          "deferred_verification_seconds": 2.919696271419525e-07,
+          "validated_seconds": 0.035753833944909275,
+          "process_peak_rss_bytes": 55869440,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.17997608298901469
+        },
+        {
+          "construction_seconds": 0.04043629195075482,
+          "deferred_verification_seconds": 2.9103830456733704e-07,
+          "validated_seconds": 0.04043658298905939,
+          "process_peak_rss_bytes": 56672256,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.20501912501640618
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 7,
+      "configuration": "modular-reference",
+      "same_basis_as_default": true,
+      "dimension": 1221,
+      "basis_nnz": 10774,
+      "csr_storage_bytes": 134176,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 7,
+          "method": "one-cube",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000033,
+          "max_variables": null,
+          "variables": 1536,
+          "tetrahedra": 6,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "modular",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "One cube at degree>6 requires checked kernel reconstruction.",
+            "Explicit modular verification selected; any canonical identity is also checked.",
+            "The supported alternate prime was requested for an exact arithmetic cross-check; no retry.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000033
+        }
+      },
+      "validated_seconds_median": 0.03561179211828858,
+      "peak_process_rss_bytes_max": 56442880,
+      "samples": [
+        {
+          "construction_seconds": 0.035532083944417536,
+          "deferred_verification_seconds": 2.4994369596242905e-07,
+          "validated_seconds": 0.0355323338881135,
+          "process_peak_rss_bytes": 55623680,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.1821157089434564
+        },
+        {
+          "construction_seconds": 0.03560558403842151,
+          "deferred_verification_seconds": 6.208079867064953e-06,
+          "validated_seconds": 0.03561179211828858,
+          "process_peak_rss_bytes": 56246272,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.18037629197351635
+        },
+        {
+          "construction_seconds": 0.04254866600967944,
+          "deferred_verification_seconds": 4.169996827840805e-07,
+          "validated_seconds": 0.04254908300936222,
+          "process_peak_rss_bytes": 56442880,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.2005139160901308
+        }
+      ]
+    },
+    {
+      "N": 1,
+      "degree": 7,
+      "configuration": "deferred-then-verify",
+      "same_basis_as_default": true,
+      "dimension": 1221,
+      "basis_nnz": 10774,
+      "csr_storage_bytes": 134176,
+      "effective_configuration": {
+        "construction": {
+          "N": 1,
+          "degree": 7,
+          "method": "one-cube",
+          "verify": false,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 1536,
+          "tetrahedra": 6,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "One cube at degree>6 requires checked kernel reconstruction.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Optional full verification is deferred; mandatory constructor checks remain enabled.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 0.03503387502860278,
+      "peak_process_rss_bytes_max": 56197120,
+      "samples": [
+        {
+          "construction_seconds": 0.028527542017400265,
+          "deferred_verification_seconds": 0.006506333011202514,
+          "validated_seconds": 0.03503387502860278,
+          "process_peak_rss_bytes": 55853056,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.18215841695200652
+        },
+        {
+          "construction_seconds": 0.028568916022777557,
+          "deferred_verification_seconds": 0.006345125031657517,
+          "validated_seconds": 0.034914041054435074,
+          "process_peak_rss_bytes": 56197120,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.17977937497198582
+        },
+        {
+          "construction_seconds": 0.0320924170082435,
+          "deferred_verification_seconds": 0.007500375038944185,
+          "validated_seconds": 0.039592792047187686,
+          "process_peak_rss_bytes": 56033280,
+          "coefficient_and_owner_sha256": "6ceb53ab779fcc2485c9a37c455bf2a9be00b03030e801095fc8ddbdfb225da2",
+          "csr_storage_bytes": 134176,
+          "whole_process_seconds": 0.20336241705808789
+        }
+      ]
+    },
+    {
+      "N": 2,
+      "degree": 7,
+      "configuration": "default",
+      "same_basis_as_default": true,
+      "dimension": 6792,
+      "basis_nnz": 35712,
+      "csr_storage_bytes": 455716,
+      "effective_configuration": {
+        "construction": {
+          "N": 2,
+          "degree": 7,
+          "method": "parametric",
+          "verify": true,
+          "independence": "identity",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 10125,
+          "tetrahedra": 48,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": false,
+          "selection_reasons": [
+            "N>=2 and degree>=7 use the fixed parametric rules.",
+            "The canonical free-coordinate identity gives exact independence without modular work.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "identity",
+          "rank_prime": null
+        }
+      },
+      "validated_seconds_median": 1.3800399999599904,
+      "peak_process_rss_bytes_max": 434962432,
+      "samples": [
+        {
+          "construction_seconds": 1.3981259160209447,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 1.398126166081056,
+          "process_peak_rss_bytes": 434585600,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.031529833097011
+        },
+        {
+          "construction_seconds": 1.3800397079903632,
+          "deferred_verification_seconds": 2.919696271419525e-07,
+          "validated_seconds": 1.3800399999599904,
+          "process_peak_rss_bytes": 431603712,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 2.9875343330204487
+        },
+        {
+          "construction_seconds": 1.3765517090214416,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 1.376551959081553,
+          "process_peak_rss_bytes": 434962432,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 2.998166749952361
+        }
+      ]
+    },
+    {
+      "N": 2,
+      "degree": 7,
+      "configuration": "explicit",
+      "same_basis_as_default": true,
+      "dimension": 6792,
+      "basis_nnz": 35712,
+      "csr_storage_bytes": 455716,
+      "effective_configuration": {
+        "construction": {
+          "N": 2,
+          "degree": 7,
+          "method": "parametric",
+          "verify": true,
+          "independence": "identity",
+          "rank_prime": 1000003,
+          "max_variables": 10125,
+          "variables": 10125,
+          "tetrahedra": 48,
+          "local_coefficients": 120,
+          "requested_method": "parametric",
+          "requested_independence": "auto",
+          "rank_prime_active": false,
+          "selection_reasons": [
+            "N>=2 and degree>=7 use the fixed parametric rules.",
+            "The canonical free-coordinate identity gives exact independence without modular work.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "Admission is capped at 10125 ambient variables; this is not a peak-RAM bound."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "identity",
+          "rank_prime": null
+        }
+      },
+      "validated_seconds_median": 1.3938300008885562,
+      "peak_process_rss_bytes_max": 435027968,
+      "samples": [
+        {
+          "construction_seconds": 1.393829708918929,
+          "deferred_verification_seconds": 2.919696271419525e-07,
+          "validated_seconds": 1.3938300008885562,
+          "process_peak_rss_bytes": 431652864,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.0287187499925494
+        },
+        {
+          "construction_seconds": 1.3957965000299737,
+          "deferred_verification_seconds": 2.909218892455101e-07,
+          "validated_seconds": 1.395796790951863,
+          "process_peak_rss_bytes": 435027968,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.004102500039153
+        },
+        {
+          "construction_seconds": 1.384345917031169,
+          "deferred_verification_seconds": 3.33995558321476e-07,
+          "validated_seconds": 1.3843462510267273,
+          "process_peak_rss_bytes": 432504832,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.026179249980487
+        }
+      ]
+    },
+    {
+      "N": 2,
+      "degree": 7,
+      "configuration": "modular-reference",
+      "same_basis_as_default": true,
+      "dimension": 6792,
+      "basis_nnz": 35712,
+      "csr_storage_bytes": 455716,
+      "effective_configuration": {
+        "construction": {
+          "N": 2,
+          "degree": 7,
+          "method": "parametric",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000033,
+          "max_variables": null,
+          "variables": 10125,
+          "tetrahedra": 48,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "modular",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "N>=2 and degree>=7 use the fixed parametric rules.",
+            "Explicit modular verification selected; any canonical identity is also checked.",
+            "The supported alternate prime was requested for an exact arithmetic cross-check; no retry.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000033
+        }
+      },
+      "validated_seconds_median": 1.399930499959737,
+      "peak_process_rss_bytes_max": 434880512,
+      "samples": [
+        {
+          "construction_seconds": 1.4065165830543265,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 1.4065168331144378,
+          "process_peak_rss_bytes": 434880512,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.031387916067615
+        },
+        {
+          "construction_seconds": 1.3999301249859855,
+          "deferred_verification_seconds": 3.7497375160455704e-07,
+          "validated_seconds": 1.399930499959737,
+          "process_peak_rss_bytes": 434552832,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.0317317079752684
+        },
+        {
+          "construction_seconds": 1.3912962910253555,
+          "deferred_verification_seconds": 2.4994369596242905e-07,
+          "validated_seconds": 1.3912965409690514,
+          "process_peak_rss_bytes": 434110464,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.0123621670063585
+        }
+      ]
+    },
+    {
+      "N": 2,
+      "degree": 7,
+      "configuration": "deferred-then-verify",
+      "same_basis_as_default": true,
+      "dimension": 6792,
+      "basis_nnz": 35712,
+      "csr_storage_bytes": 455716,
+      "effective_configuration": {
+        "construction": {
+          "N": 2,
+          "degree": 7,
+          "method": "parametric",
+          "verify": false,
+          "independence": "identity",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 10125,
+          "tetrahedra": 48,
+          "local_coefficients": 120,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": false,
+          "selection_reasons": [
+            "N>=2 and degree>=7 use the fixed parametric rules.",
+            "The canonical free-coordinate identity gives exact independence without modular work.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Optional full verification is deferred; mandatory constructor checks remain enabled.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "identity",
+          "rank_prime": null
+        }
+      },
+      "validated_seconds_median": 1.4069047500379384,
+      "peak_process_rss_bytes_max": 434077696,
+      "samples": [
+        {
+          "construction_seconds": 1.42159887496382,
+          "deferred_verification_seconds": 0.04389379208441824,
+          "validated_seconds": 1.4654926670482382,
+          "process_peak_rss_bytes": 433651712,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.194781541940756
+        },
+        {
+          "construction_seconds": 1.3634065421065316,
+          "deferred_verification_seconds": 0.042946500005200505,
+          "validated_seconds": 1.406353042111732,
+          "process_peak_rss_bytes": 434077696,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.008140249992721
+        },
+        {
+          "construction_seconds": 1.3518215420190245,
+          "deferred_verification_seconds": 0.055083208018913865,
+          "validated_seconds": 1.4069047500379384,
+          "process_peak_rss_bytes": 433782784,
+          "coefficient_and_owner_sha256": "9dcb58cf8f31f4efaa18a1ff10755a18295b1c7b2e36cb70204ed8a3e2f7ee46",
+          "csr_storage_bytes": 455716,
+          "whole_process_seconds": 3.049273709068075
+        }
+      ]
+    },
+    {
+      "N": 5,
+      "degree": 6,
+      "configuration": "default",
+      "same_basis_as_default": true,
+      "dimension": 47751,
+      "basis_nnz": 478780,
+      "csr_storage_bytes": 5936368,
+      "effective_configuration": {
+        "construction": {
+          "N": 5,
+          "degree": 6,
+          "method": "window",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 89373,
+          "tetrahedra": 750,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 2.666586834122427,
+      "peak_process_rss_bytes_max": 315392000,
+      "samples": [
+        {
+          "construction_seconds": 2.6665865840623155,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 2.666586834122427,
+          "process_peak_rss_bytes": 315392000,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.953899959102273
+        },
+        {
+          "construction_seconds": 2.6400864589959383,
+          "deferred_verification_seconds": 3.7497375160455704e-07,
+          "validated_seconds": 2.64008683396969,
+          "process_peak_rss_bytes": 314671104,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.8824824169278145
+        },
+        {
+          "construction_seconds": 2.6761100839357823,
+          "deferred_verification_seconds": 3.7497375160455704e-07,
+          "validated_seconds": 2.676110458909534,
+          "process_peak_rss_bytes": 315064320,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.934853332932107
+        }
+      ]
+    },
+    {
+      "N": 5,
+      "degree": 6,
+      "configuration": "explicit",
+      "same_basis_as_default": true,
+      "dimension": 47751,
+      "basis_nnz": 478780,
+      "csr_storage_bytes": 5936368,
+      "effective_configuration": {
+        "construction": {
+          "N": 5,
+          "degree": 6,
+          "method": "window",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": 89373,
+          "variables": 89373,
+          "tetrahedra": 750,
+          "local_coefficients": 84,
+          "requested_method": "window",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Full finite verification will run after construction.",
+            "Admission is capped at 89373 ambient variables; this is not a peak-RAM bound."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 2.684472083928995,
+      "peak_process_rss_bytes_max": 314818560,
+      "samples": [
+        {
+          "construction_seconds": 2.636873916024342,
+          "deferred_verification_seconds": 3.330642357468605e-07,
+          "validated_seconds": 2.636874249088578,
+          "process_peak_rss_bytes": 310657024,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.883448083070107
+        },
+        {
+          "construction_seconds": 2.684471833985299,
+          "deferred_verification_seconds": 2.4994369596242905e-07,
+          "validated_seconds": 2.684472083928995,
+          "process_peak_rss_bytes": 314818560,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.9401079999515787
+        },
+        {
+          "construction_seconds": 2.718021792010404,
+          "deferred_verification_seconds": 1.0830117389559746e-06,
+          "validated_seconds": 2.718022875022143,
+          "process_peak_rss_bytes": 313622528,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 3.038311167038046
+        }
+      ]
+    },
+    {
+      "N": 5,
+      "degree": 6,
+      "configuration": "modular-reference",
+      "same_basis_as_default": true,
+      "dimension": 47751,
+      "basis_nnz": 478780,
+      "csr_storage_bytes": 5936368,
+      "effective_configuration": {
+        "construction": {
+          "N": 5,
+          "degree": 6,
+          "method": "window",
+          "verify": true,
+          "independence": "modular",
+          "rank_prime": 1000033,
+          "max_variables": null,
+          "variables": 89373,
+          "tetrahedra": 750,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "modular",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "Explicit modular verification selected; any canonical identity is also checked.",
+            "The supported alternate prime was requested for an exact arithmetic cross-check; no retry.",
+            "Full finite verification will run after construction.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000033
+        }
+      },
+      "validated_seconds_median": 2.706201000022702,
+      "peak_process_rss_bytes_max": 324665344,
+      "samples": [
+        {
+          "construction_seconds": 2.7249452089890838,
+          "deferred_verification_seconds": 3.7497375160455704e-07,
+          "validated_seconds": 2.7249455839628354,
+          "process_peak_rss_bytes": 324665344,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 3.046774541027844
+        },
+        {
+          "construction_seconds": 2.7062005000188947,
+          "deferred_verification_seconds": 5.00003807246685e-07,
+          "validated_seconds": 2.706201000022702,
+          "process_peak_rss_bytes": 318980096,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.989001875044778
+        },
+        {
+          "construction_seconds": 2.6518033749889582,
+          "deferred_verification_seconds": 2.50060111284256e-07,
+          "validated_seconds": 2.6518036250490695,
+          "process_peak_rss_bytes": 312836096,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.9827536250231788
+        }
+      ]
+    },
+    {
+      "N": 5,
+      "degree": 6,
+      "configuration": "deferred-then-verify",
+      "same_basis_as_default": true,
+      "dimension": 47751,
+      "basis_nnz": 478780,
+      "csr_storage_bytes": 5936368,
+      "effective_configuration": {
+        "construction": {
+          "N": 5,
+          "degree": 6,
+          "method": "window",
+          "verify": false,
+          "independence": "modular",
+          "rank_prime": 1000003,
+          "max_variables": null,
+          "variables": 89373,
+          "tetrahedra": 750,
+          "local_coefficients": 84,
+          "requested_method": "auto",
+          "requested_independence": "auto",
+          "rank_prime_active": true,
+          "selection_reasons": [
+            "Degree-six grids N<=4 use stored bases; larger grids use window transfer.",
+            "This branch has no canonical free-coordinate identity; modular rank checks independence.",
+            "The standard rank prime preserves v0.1.0; no prime retry is performed.",
+            "Optional full verification is deferred; mandatory constructor checks remain enabled.",
+            "No ambient-variable cap is guessed; no peak-RAM estimate is claimed."
+          ]
+        },
+        "verification": {
+          "status": "passed",
+          "independence": "modular",
+          "rank_prime": 1000003
+        }
+      },
+      "validated_seconds_median": 2.710075416835025,
+      "peak_process_rss_bytes_max": 326729728,
+      "samples": [
+        {
+          "construction_seconds": 2.143709291005507,
+          "deferred_verification_seconds": 0.6152392079820856,
+          "validated_seconds": 2.7589484989875928,
+          "process_peak_rss_bytes": 320028672,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 3.022305041900836
+        },
+        {
+          "construction_seconds": 2.0911781669128686,
+          "deferred_verification_seconds": 0.6188972499221563,
+          "validated_seconds": 2.710075416835025,
+          "process_peak_rss_bytes": 314638336,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.9644245830131695
+        },
+        {
+          "construction_seconds": 2.087327832938172,
+          "deferred_verification_seconds": 0.620819624979049,
+          "validated_seconds": 2.708147457917221,
+          "process_peak_rss_bytes": 326729728,
+          "coefficient_and_owner_sha256": "2724cc6c7156d4efbbc03b9850d7f650d9ebce5a45867df70be877e8d7397ee4",
+          "csr_storage_bytes": 5936368,
+          "whole_process_seconds": 2.981366083957255
+        }
+      ]
+    }
+  ]
+}

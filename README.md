@@ -5,7 +5,7 @@
 Freudenthal Potentials is a Python finite-element research tool for the
 consistently oriented six-tetrahedron subdivision of a cube grid. It constructs
 continuous vector polynomial potentials whose curls are also continuous.
-Every returned basis function has an explicitly checked owner vertex star.
+Default construction checks each basis function's recorded owner vertex star.
 Use it to inspect local spaces, assemble curl constraints, evaluate basis
 functions or build reproducible finite-element experiments.
 

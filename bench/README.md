@@ -61,3 +61,22 @@ python bench/benchmark_policy.py --smoke --repetitions 1 \
 set, not an API problem or verification guarantee. Resource admission for the
 full benchmark should account for the `N=6` fixed reference used by window
 transfer; API `max_variables` is not a whole-process memory cap.
+
+## Selected v0.2.0 measurements
+
+Three cold-process observations per configuration on the recorded macOS/arm64
+host; entries below are median **fully validated** seconds. Full samples,
+process RSS, configuration reasons and implementation hashes are in the JSON.
+
+| `(N,d)` | Default | Pinned | Alternate modulus | Deferred + full check |
+|---|---:|---:|---:|---:|
+| `(1,6)` | 0.0118 | 0.0119 | 0.0111 | 0.0114 |
+| `(1,7)` | 0.0358 | 0.0358 | 0.0356 | 0.0350 |
+| `(2,7)` | 1.3800 | 1.3938 | 1.3999 | 1.4069 |
+| `(5,6)` | 2.6666 | 2.6845 | 2.7062 | 2.7101 |
+
+All 48 observations completed full checks and returned coefficient/owner
+hashes identical to the corresponding default. The small timing differences
+on this host do not establish a universally fastest policy. In particular,
+the parametric case uses a large fixed rule table: an ambient-variable
+admission cap does not bound its table-loading memory.

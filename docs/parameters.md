@@ -108,8 +108,15 @@ Optional `free` and `pivots` default to empty integer arrays; they are column
 IDs for an actual normal form. `normalform=None` omits that matrix, otherwise
 it has integer CSR shape `(len(pivots),3*space.nscalar)`. `metadata` defaults
 to an empty dictionary. These are representation data, not tuning choices.
-Manual initialization itself does not verify any invariant; use the factory
-for ordinary construction. `len`, `summary` and `configuration` have no parameters.
+Raw `Mesh` records contain required `N`, integer `vertices` of shape
+`((N+1)^3,3)`, `tets` of shape `(6*N^3,4)`, scaled integer `gradients` of
+shape `(6*N^3,4,3)`, face-to-incident-tetrahedron `faces` and per-vertex
+`stars`. Raw `BernsteinSpace` records require `mesh`, degree `d`, local
+`alpha` multiindices `(binomial(d+3,3),4)`, global coefficient `nodes`,
+`local_to_global` maps and per-node incident-tetrahedron, owner-intersection
+and minimal-entity records (`node_tets`, `node_owner_vertices`, `node_entity`).
+These raw fields have no tuning defaults. Manual initialization itself does
+not verify any invariant; use the builders/factory for ordinary construction. `len`, `summary` and `configuration` have no parameters.
 
 ## Installed CLI and benchmark parameters
 
