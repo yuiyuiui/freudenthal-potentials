@@ -11,7 +11,7 @@ python3.13 -m venv .venv
 .venv/bin/python -m pip install ".[validation]"
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python -m pytest test
-.venv/bin/python -m ruff check src/freudenthal test examples numerical_case/*.py verify_all.py
+.venv/bin/python -m ruff check src/freudenthal test examples bench numerical_case/*.py verify_all.py
 .venv/bin/python -m build
 .venv/bin/python -m twine check dist/*
 ```
@@ -43,3 +43,20 @@ installed package. Ordinary package use does not invoke a compiler.
 New examples and plotting runs use separate output directories and manifests.
 The distributed figures are selected compact outputs; complete basis arrays,
 logs, virtual environments and build products remain untracked.
+
+Policy tests exercise real default/explicit kernels, alternate-prime
+independence, an analytical nonzero physical field, the installed CLI,
+admission guards before allocation, deferred/failed validation state and
+legacy persistence. The bounded [matched benchmark](../bench/README.md)
+finishes full checks for every configuration. Run it with a fresh output:
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  .venv/bin/python bench/benchmark_policy.py --repetitions 3 \
+  --output numerical_case/results/policy-1
+```
+
+The implementation, API, tests, benchmarks and documentation were created
+and maintained by AI agents under Kaiwen Jin's direction. Review the exact
+limits and attribution in [NOTICE.md](../NOTICE.md); passing CI is not
+independent human review or mathematical certification.

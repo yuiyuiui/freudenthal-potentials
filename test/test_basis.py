@@ -25,6 +25,10 @@ def test_critical_construction_and_support(N):
     basis = construct_basis(N, 6)
     assert len(basis) == 300 * N**3 + 390 * N**2 + 99 * N + 6
     assert basis.metadata["all_rows_vertex_local"]
+    config = basis.configuration["construction"]
+    assert config["method"] == ("stored" if N <= 4 else "window")
+    assert config["N"] == N and config["degree"] == 6
+    assert basis.configuration["verification"]["status"] == "passed"
 
 
 def test_one_cube_higher_degree():

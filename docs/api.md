@@ -1,13 +1,17 @@
 # Public API
 
-Import the five public objects from `freudenthal`. Indices are zero-based;
+Import the public objects from `freudenthal`. Indices are zero-based;
 array component order is `(x,y,z)`.
+The full [parameter contract](parameters.md) specifies every input, actual
+default, selection reason, recommendation, cost consequence and failure mode.
 
 | Object | Contract |
 |---|---|
 | `Mesh.build(N)` | Positive integer grid count, `(N+1)^3` integer vertices and `6*N^3` tetrahedra |
 | `BernsteinSpace.build(mesh, d)` | Continuous Bernstein coefficient space, positive integer `d`; lower degrees are available for assembly only |
-| `construct_basis(N, degree, verify=True)` | Construct a `PotentialBasis` for integers `N>=1, degree>=6`; finite checks run by default |
+| `construct_basis(N, degree, *, verify=True, method="auto", independence="auto", rank_prime=1000003, max_variables=None)` | Construct the requested space; preserve required problem inputs, full finite checks by default |
+| `plan_construction(...)` | Same parameters/resolver, with no mesh/matrix allocation; returns a `ConstructionPlan` and `to_dict()` |
+| `ConstructionPlan` | Frozen resolved-policy result with exact counts and selection reasons; not an estimated RAM or conditioning bound |
 | `dimension(N, degree)` | Polynomial count for `N>=2` or `d=6`; checked full kernel construction for `N=1,d>6` |
 | `PotentialBasis` | Basis rows, owner vertices, evaluation, support, validation and persistence |
 
@@ -37,7 +41,9 @@ shape `(dimension, 3*(N*d+1)^3)`. `basis.owners[i]` indexes the owner vertex.
 `basis.free`, `basis.pivots` and `basis.normalform` expose branch-dependent
 normal-form information; small-grid stored bases may not have a normal form.
 
-- `basis.verify()` checks all Cartesian curl jumps, owner-star support,
+- `basis.configuration` returns a detached construction and last-verification
+  snapshot, including active check/prime and selection reasons.
+- `basis.verify(independence=None, rank_prime=None)` checks all Cartesian curl jumps, owner-star support,
   independence and the applicable dimension formula, returning a report.
   Unsafe signed-64-bit multiplication raises `OverflowError`.
 - `basis.support_tetrahedra(i)` returns sorted tetrahedron IDs with a nonzero
@@ -52,7 +58,9 @@ normal-form information; small-grid stored bases may not have a normal form.
   bounds, construction branch and any completed finite checks.
 - `basis.save(directory)` requires an empty or new directory.
   `PotentialBasis.load(directory, verify=True)` disables pickle loading and
-  rechecks the saved coefficients by default.
+  rechecks the saved coefficients by default. Optional `independence`,
+  `rank_prime` and `max_variables` have the [documented shared meanings](parameters.md).
+  Saved successful reports are never treated as a new verification.
 
 ```python
 from freudenthal import PotentialBasis, construct_basis
@@ -68,4 +76,8 @@ Wrong construction types raise `TypeError`; unsupported ranges raise
 out-of-range indices with `IndexError`, and invalid shapes, nonfinite points
 or out-of-domain coordinates with `ValueError`. Kernel reconstruction can fail
 with `ValueError`, rather than returning an unverified basis. No allocation
-guard can predict every feasible `(N,d)` combination; start with the examples.
+guard can predict every feasible `(N,d)` combination. The explicit
+`max_variables` guard limits the ambient count before allocation, not RAM.
+Use `plan_construction` to inspect counts and pin a valid method. Existing
+v0.1.0 calls and persistence files remain compatible; invalid truthy flags
+such as `verify="false"` are now rejected.

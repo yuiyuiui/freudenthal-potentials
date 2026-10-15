@@ -46,7 +46,10 @@ jobs:
           python -m pytest "$GITHUB_WORKSPACE/test" -p no:cacheprovider
           python "$GITHUB_WORKSPACE/examples/quickstart.py" --save "$RUNNER_TEMP/quickstart-basis"
       - name: Lint public interface, examples and drivers
-        run: python -m ruff check src/freudenthal test examples numerical_case/*.py verify_all.py
+        run: python -m ruff check src/freudenthal test examples bench numerical_case/*.py verify_all.py
+      - name: Bounded matched policy benchmark
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: python bench/benchmark_policy.py --smoke --repetitions 1 --output "$RUNNER_TEMP/policy-smoke"
       - name: Recompute one geometry example and render figures
         run: |
           python numerical_case/run_example.py --output "$RUNNER_TEMP/local-example"

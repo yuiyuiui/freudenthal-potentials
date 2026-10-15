@@ -8,11 +8,15 @@ publicly distributed in the [manuscript's accompanying package](https://github.c
 This software release adds a documented reusable interface, packaging,
 regressions and computed visual examples.
 
-ChatGPT assisted with candidate constructions and certificate-producing code.
-Codex assisted with proof exposition, implementation, tests, source checks,
-documentation and software preparation. These tools are not authors or
-independent human reviewers. Passing software checks does not constitute
-formal verification or independent mathematical certification.
+The implementation, API, tests, benchmarks and documentation were produced
+by AI agents under Kaiwen Jin's direction. This is AI-created software.
+ChatGPT contributed candidate constructions and certificate-producing code;
+Codex produced and maintained the software interface, implementation, tests,
+benchmarks, documentation, source checks and release preparation. Scientific
+attribution and direction remain with Kaiwen Jin. This disclosure does not
+assert line-by-line human review. The agents are not independent human
+reviewers. Passing software checks does not constitute formal verification,
+independent mathematical certification or upstream acceptance.
 
 The finite-element motivation and conjecture are due to Patrick E. Farrell,
 Lawrence Mitchell and L. Ridgway Scott; see the primary references in

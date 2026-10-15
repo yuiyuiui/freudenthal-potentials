@@ -1,5 +1,6 @@
 """Construct, verify, save, and evaluate vertex-star potential bases."""
 
+import copy
 import json
 import math
 from dataclasses import dataclass, field
@@ -14,24 +15,19 @@ from . import data
 from .algebra import coo_from_rows, lift_rows, sparse_mod_rank
 from .exact import canonical_kernel, integer_product, require_zero
 from .geometry import BernsteinSpace, Mesh, compositions
+from .policy import (
+    DEFAULTS,
+    independence_check,
+    plan_construction,
+    rank_modulus,
+    variable_guard,
+    verification_flag,
+)
+from .policy import index as _index
+from .policy import (
+    parameters as _parameters,
+)
 from .rules import critical_key, encode, owner_masks, rule_table, type_key
-
-
-def _parameters(N, degree):
-    for name, value in (("N", N), ("degree", degree)):
-        if isinstance(value, bool) or not isinstance(value, (int, np.integer)):
-            raise TypeError(f"{name} must be an integer")
-    if N < 1 or degree < 6:
-        raise ValueError("Construction requires N>=1 and potential degree d>=6")
-    return int(N), int(degree)
-
-
-def _index(value, size, name):
-    if isinstance(value, bool) or not isinstance(value, (int, np.integer)):
-        raise TypeError(f"{name} must be an integer index")
-    if not 0 <= value < size:
-        raise IndexError(f"{name} index must lie in [0, {size})")
-    return int(value)
 
 
 @lru_cache(maxsize=16)
@@ -101,13 +97,53 @@ class PotentialBasis:
     def __len__(self):
         return self.coefficients.shape[0]
 
-    def verify(self) -> dict:
+    @property
+    def configuration(self):
+        """Detached construction policy and last verification-attempt snapshot."""
+        return copy.deepcopy(self.metadata.get("configuration", {}))
+
+    def _invalidate_verification(self, status):
+        for key in (
+            "all_curl_components_residual_nnz",
+            "all_rows_vertex_local",
+            "independent_rows",
+        ):
+            self.metadata.pop(key, None)
+        self.metadata["exact_checks_passed"] = False
+        config = self.metadata.setdefault("configuration", {})
+        config["verification"] = {"status": status}
+
+    def verify(self, *, independence=None, rank_prime=None) -> dict:
         """Check all curl components, support, and finite-instance independence.
 
         Uniform completeness uses the fixed exact certificates and the
         analytical parameter-coverage proof. Run verify_all.py to replay
         their whole finite verification suite.
         """
+        self._invalidate_verification("running")
+        try:
+            config = self.metadata.get("configuration", {}).get("construction", {})
+            requested = config.get("independence", DEFAULTS.independence)
+            check = independence_check(
+                requested if independence is None else independence,
+                bool(self.metadata.get("canonical_free_identity", False)),
+            )
+            prime = rank_modulus(
+                config.get("rank_prime", DEFAULTS.rank_prime) if rank_prime is None else rank_prime
+            )
+            report = self._verify(check, prime)
+        except Exception:
+            self.metadata["configuration"]["verification"]["status"] = "failed"
+            raise
+        self.metadata.update(report)
+        self.metadata["configuration"]["verification"] = {
+            "status": "passed",
+            "independence": check,
+            "rank_prime": prime if check == "modular" else None,
+        }
+        return report
+
+    def _verify(self, independence, prime):
         space = self.space
         if self.coefficients.shape[1] != 3 * space.nscalar:
             raise ValueError("Basis has the wrong ambient dimension")
@@ -140,7 +176,7 @@ class PotentialBasis:
                 projected - sparse.eye(len(self), dtype=np.int64, format="csr"),
                 "Canonical free-coordinate block is not identity",
             )
-        elif sparse_mod_rank(projected, 1000003).rank != len(self):
+        if independence == "modular" and sparse_mod_rank(projected, prime).rank != len(self):
             raise ValueError("Basis rows fail the exact modular independence check")
         if (space.mesh.N >= 2 or space.d == 6) and len(self) != dimension(space.mesh.N, space.d):
             raise ValueError("Basis count disagrees with the certified dimension")
@@ -150,7 +186,6 @@ class PotentialBasis:
             "independent_rows": len(self),
             "exact_checks_passed": True,
         }
-        self.metadata.update(report)
         return report
 
     def save(self, directory: str | Path):
@@ -172,10 +207,26 @@ class PotentialBasis:
         (directory / "summary.json").write_text(json.dumps(self.summary(), indent=2) + "\n")
 
     @classmethod
-    def load(cls, directory: str | Path, *, verify=True):
+    def load(
+        cls,
+        directory: str | Path,
+        *,
+        verify=DEFAULTS.verify,
+        independence=None,
+        rank_prime=None,
+        max_variables=DEFAULTS.max_variables,
+    ):
+        verify = verification_flag(verify)
+        if rank_prime is not None:
+            rank_modulus(rank_prime)
+        if independence is not None:
+            independence_check(independence, True)
         directory = Path(directory)
         with np.load(directory / "metadata.npz", allow_pickle=False) as arrays:
-            N, d = _parameters(int(arrays["N"]), int(arrays["degree"]))
+            if arrays["N"].shape != () or arrays["degree"].shape != ():
+                raise ValueError("Saved N and degree must be integer scalars")
+            N, d = _parameters(arrays["N"].item(), arrays["degree"].item())
+            variable_guard(N, d, max_variables)
             space = BernsteinSpace.build(Mesh.build(N), d)
             out = cls(
                 space,
@@ -187,14 +238,24 @@ class PotentialBasis:
         if (directory / "normalform.npz").exists():
             out.normalform = sparse.load_npz(directory / "normalform.npz")
         out.metadata = json.loads((directory / "summary.json").read_text())
-        out.metadata["exact_checks_passed"] = False
+        out._invalidate_verification("deferred")
+        if independence is not None:
+            independence_check(
+                independence, bool(out.metadata.get("canonical_free_identity", False))
+            )
+        out.metadata["configuration"]["load"] = {
+            "verify": verify,
+            "independence_requested": independence,
+            "rank_prime_requested": None if rank_prime is None else int(rank_prime),
+            "max_variables": None if max_variables is None else int(max_variables),
+        }
         if verify:
-            out.verify()
+            out.verify(independence=independence, rank_prime=rank_prime)
         return out
 
     def summary(self) -> dict:
         return {
-            **self.metadata,
+            **copy.deepcopy(self.metadata),
             "N": self.space.mesh.N,
             "potential_degree": self.space.d,
             "k": self.space.d - 1,
@@ -324,7 +385,7 @@ def _high_degree(space):
     )
 
 
-def _critical_degree(space):
+def _critical_degree(space, prime=DEFAULTS.rank_prime):
     N = space.mesh.N
     if N < 5:
         prefix = "critical/results" if N in (1, 4) else "critical/aim633_experiments/results"
@@ -377,7 +438,7 @@ def _critical_degree(space):
                 }
                 pool.append(coo_from_rows([row], 3 * space.nscalar))
     generators = sparse.vstack(pool, format="csr")
-    echelon = sparse_mod_rank(generators[:, free], 1000003)
+    echelon = sparse_mod_rank(generators[:, free], prime)
     if echelon.rank != len(free):
         raise ValueError("Local critical-degree generators do not span the canonical kernel")
     B = generators[echelon.independent_inputs].tocsr()
@@ -407,17 +468,17 @@ def _critical_reference():
     return space, free, owner, parts, repairs
 
 
-def _one_cube_basis(degree):
+def _one_cube_basis(degree, prime=DEFAULTS.rank_prime):
     space = BernsteinSpace.build(Mesh.build(1), degree)
     A, _ = space.curl_constraints()
-    echelon = sparse_mod_rank(A, 1000003)
-    lifted, _ = lift_rows(echelon.nullspace_rows(), 1000003)
+    echelon = sparse_mod_rank(A, prime)
+    lifted, _ = lift_rows(echelon.nullspace_rows(), prime)
     B = coo_from_rows(lifted, A.shape[1])
     # Integer membership and a nonzero free-coordinate diagonal, together
     # with the modular constraint rank, prove real-field completeness.
     free = np.asarray([i for i in range(A.shape[1]) if i not in echelon.rows], dtype=np.int64)
     require_zero(integer_product(A, B.T), "One-cube rational lift failed")
-    if sparse_mod_rank(B[:, free], 1000003).rank + echelon.rank != A.shape[1]:
+    if sparse_mod_rank(B[:, free], prime).rank + echelon.rank != A.shape[1]:
         raise ValueError("One-cube completeness check failed")
     return PotentialBasis(
         space,
@@ -428,15 +489,38 @@ def _one_cube_basis(degree):
     )
 
 
-def construct_basis(N: int, degree: int, *, verify=True) -> PotentialBasis:
-    """Construct a basis for every N>=1 and d>=6; verify exact finite checks."""
-    N, degree = _parameters(N, degree)
-    if N == 1 and degree > 6:
-        basis = _one_cube_basis(degree)
+def construct_basis(
+    N: int,
+    degree: int,
+    *,
+    verify=DEFAULTS.verify,
+    method=DEFAULTS.method,
+    independence=DEFAULTS.independence,
+    rank_prime=DEFAULTS.rank_prime,
+    max_variables=DEFAULTS.max_variables,
+) -> PotentialBasis:
+    """Construct the requested space using the shared, inspectable policy.
+
+    Defaults preserve v0.1.0 construction and full finite checks. See
+    plan_construction for the allocation-free plan; no fallback changes N or degree.
+    """
+    plan = plan_construction(
+        N,
+        degree,
+        verify=verify,
+        method=method,
+        independence=independence,
+        rank_prime=rank_prime,
+        max_variables=max_variables,
+    )
+    N, degree = plan.N, plan.degree
+    if plan.method == "one-cube":
+        basis = _one_cube_basis(degree, plan.rank_prime)
     else:
         space = BernsteinSpace.build(Mesh.build(N), degree)
-        basis = _critical_degree(space) if degree == 6 else _high_degree(space)
-    basis.metadata["exact_checks_passed"] = False
-    if verify:
+        basis = _critical_degree(space, plan.rank_prime) if degree == 6 else _high_degree(space)
+    basis.metadata["configuration"] = {"construction": plan.to_dict()}
+    basis._invalidate_verification("deferred")
+    if plan.verify:
         basis.verify()
     return basis

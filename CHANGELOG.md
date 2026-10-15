@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0 — 2026-10-15
+
+- Shared inspectable `plan_construction` policy and installed CLI; existing
+  valid construction calls keep the same problem, branch and verification default.
+- Explicit branch pinning, alternate supported rank prime, forced modular
+  reference checks, and a pre-allocation ambient-variable guard.
+- Actual construction/verification configuration and selection reasons in
+  results; strict verification flags and explicit failure without fallback.
+- Failed revalidation clears stale success, deferred loads clear old check
+  reports, and noninteger saved mesh/degree inputs are rejected without rounding.
+- Parameter recommendations, matched cold-process default/override benchmarks,
+  regressions and explicit AI-created software provenance.
+
 ## 0.1.0 — 2026-10-13
 
 - Sparse integer construction of local polynomial potential bases, with owner

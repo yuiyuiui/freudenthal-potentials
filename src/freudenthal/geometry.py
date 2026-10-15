@@ -14,6 +14,9 @@ from itertools import permutations, product
 import numpy as np
 from scipy import sparse
 
+from .policy import index as _index
+from .policy import verification_flag
+
 
 @lru_cache(None)
 def compositions(d: int, n: int) -> tuple[tuple[int, ...], ...]:
@@ -87,6 +90,8 @@ class BernsteinSpace:
 
     @classmethod
     def build(cls, mesh: Mesh, d: int) -> BernsteinSpace:
+        if not isinstance(mesh, Mesh):
+            raise TypeError("mesh must be a Mesh; use Mesh.build(N)")
         if isinstance(d, bool) or not isinstance(d, (int, np.integer)) or d < 1:
             raise ValueError("degree must be a positive integer")
         d = int(d)
@@ -132,11 +137,15 @@ class BernsteinSpace:
         return len(self.nodes)
 
     def allowed_nodes(self, support: set[int]) -> np.ndarray:
+        if not isinstance(support, (set, frozenset)):
+            raise TypeError("support must be a set of tetrahedron indices")
+        support = {_index(t, len(self.mesh.tets), "tetrahedron") for t in support}
         return np.array(
             [i for i, inc in enumerate(self.node_tets) if inc <= support], dtype=np.int64
         )
 
     def vertex_nodes(self, v: int) -> np.ndarray:
+        v = _index(v, len(self.mesh.vertices), "vertex")
         return np.array(
             [i for i, owners in enumerate(self.node_owner_vertices) if v in owners], dtype=np.int64
         )
@@ -148,6 +157,7 @@ class BernsteinSpace:
         the normal curl jump vanishes identically. By default retain two
         components complementary to a nonzero face-normal component.
         """
+        all_components = verification_flag(all_components, "all_components")
         amap = {tuple(a): i for i, a in enumerate(self.alpha)}
         rows = []
         cols = []
