@@ -1,0 +1,243 @@
+{
+  "format_version": 1,
+  "preflight": "ASSESSED_RUN",
+  "evidence": "CLAIM_FACING",
+  "placement": "LOCAL_EXECUTION; one worker and one BLAS/OpenMP thread",
+  "python": "3.13.3",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0",
+    "python-flint": "0.8.0"
+  },
+  "timer": "perf_counter; validation and profiling excluded from timings",
+  "memory": "Fresh-worker absolute peak RSS after timing includes imports, inputs, outputs and validation. Python traced peak is one separate call and excludes untraced native allocations.",
+  "cost": "Setup/import, first call and warm public calls are separated. Internal caches may be reused.",
+  "results": [
+    {
+      "case": "small",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 16,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "489b6835d28b6c267b5a1920d08fb7513a629fed51f46dab6a733107cb114362",
+      "setup_seconds": 0.1026871659560129,
+      "first_call_seconds": 0.0013133330503478646,
+      "warm_seconds": [
+        0.0011581670260056853,
+        0.0011737080058082938,
+        0.0011727919336408377,
+        0.0011830420698970556,
+        0.001202083076350391,
+        0.0011828329879790545,
+        0.0011747910175472498
+      ],
+      "median_seconds": 0.0011747910175472498,
+      "minimum_seconds": 0.0011581670260056853,
+      "maximum_seconds": 0.001202083076350391,
+      "python_traced_peak_bytes": 39232,
+      "fresh_worker_peak_rss_bytes": 64782336,
+      "profile": "         7083 function calls in 0.003 seconds\n\n   Ordered by: cumulative time\n   List reduced from 119 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.003    0.003 core_cases.py:14(call)\n        1    0.000    0.000    0.003    0.003 basis.py:313(evaluate_many)\n       16    0.000    0.000    0.002    0.000 basis.py:294(evaluate)\n       16    0.000    0.000    0.002    0.000 basis.py:268(evaluate_on_tetrahedron)\n       16    0.000    0.000    0.001    0.000 _index.py:29(__getitem__)\n       32    0.000    0.000    0.001    0.000 _compressed.py:30(__init__)\n       16    0.000    0.000    0.001    0.000 _csr.py:274(_get_sliceXarray)\n       16    0.000    0.000    0.000    0.000 _compressed.py:654(_minor_index_fancy)\n       16    0.000    0.000    0.000    0.000 numeric.py:1563(cross)\n       16    0.000    0.000    0.000    0.000 _matrix.py:120(getrow)\n       16    0.000    0.000    0.000    0.000 _csr.py:167(_getrow)\n       48    0.000    0.000    0.000    0.000 _base.py:1695(_get_index_dtype)\n       48    0.000    0.000    0.000    0.000 numeric.py:1489(moveaxis)\n       48    0.000    0.000    0.000    0.000 _sputils.py:263(get_index_dtype)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "small",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 16,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "a0832b8576813c71bb0516c4229c73d4e94eba3a1c1ea6c2d60820add4dab555",
+      "setup_seconds": 0.09207416698336601,
+      "first_call_seconds": 0.0004911659052595496,
+      "warm_seconds": [
+        0.00043645803816616535,
+        0.0004253750666975975,
+        0.0004107910208404064,
+        0.0004287909250706434,
+        0.0004563750699162483,
+        0.00041266705375164747,
+        0.0004218750400468707
+      ],
+      "median_seconds": 0.0004253750666975975,
+      "minimum_seconds": 0.0004107910208404064,
+      "maximum_seconds": 0.0004563750699162483,
+      "python_traced_peak_bytes": 55632,
+      "fresh_worker_peak_rss_bytes": 64700416,
+      "profile": "         1915 function calls in 0.001 seconds\n\n   Ordered by: cumulative time\n   List reduced from 132 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.001    0.001 core_cases.py:14(call)\n        1    0.000    0.000    0.001    0.001 basis.py:313(evaluate_many)\n        6    0.000    0.000    0.000    0.000 _index.py:29(__getitem__)\n        6    0.000    0.000    0.000    0.000 _csr.py:274(_get_sliceXarray)\n        6    0.000    0.000    0.000    0.000 _compressed.py:654(_minor_index_fancy)\n        6    0.000    0.000    0.000    0.000 numeric.py:1563(cross)\n        7    0.000    0.000    0.000    0.000 _compressed.py:30(__init__)\n       12    0.000    0.000    0.000    0.000 basis.py:340(bernstein)\n       18    0.000    0.000    0.000    0.000 numeric.py:1489(moveaxis)\n       13    0.000    0.000    0.000    0.000 _base.py:1695(_get_index_dtype)\n        6    0.000    0.000    0.000    0.000 _index.py:298(_validate_indices)\n       13    0.000    0.000    0.000    0.000 _sputils.py:263(get_index_dtype)\n       36    0.000    0.000    0.000    0.000 numeric.py:1427(normalize_axis_tuple)\n        1    0.000    0.000    0.000    0.000 _matrix.py:120(getrow)\n\n\n",
+      "implementation": "candidate"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 256,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "a0832b8576813c71bb0516c4229c73d4e94eba3a1c1ea6c2d60820add4dab555",
+      "setup_seconds": 0.11108058306854218,
+      "first_call_seconds": 0.0013077919138595462,
+      "warm_seconds": [
+        0.0011767090763896704,
+        0.0011753329308703542,
+        0.0011587919434532523,
+        0.0011455409694463015,
+        0.0011747499229386449,
+        0.0011628329521045089,
+        0.0011632919777184725
+      ],
+      "median_seconds": 0.0011632919777184725,
+      "minimum_seconds": 0.0011455409694463015,
+      "maximum_seconds": 0.0011767090763896704,
+      "python_traced_peak_bytes": 135160,
+      "fresh_worker_peak_rss_bytes": 65159168,
+      "profile": "         2144 function calls in 0.002 seconds\n\n   Ordered by: cumulative time\n   List reduced from 132 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.002    0.002 core_cases.py:14(call)\n        1    0.000    0.000    0.002    0.002 basis.py:313(evaluate_many)\n       24    0.001    0.000    0.001    0.000 basis.py:340(bernstein)\n        6    0.000    0.000    0.000    0.000 _index.py:29(__getitem__)\n        6    0.000    0.000    0.000    0.000 _csr.py:274(_get_sliceXarray)\n        6    0.000    0.000    0.000    0.000 _compressed.py:654(_minor_index_fancy)\n        6    0.000    0.000    0.000    0.000 numeric.py:1563(cross)\n        7    0.000    0.000    0.000    0.000 _compressed.py:30(__init__)\n       18    0.000    0.000    0.000    0.000 numeric.py:1489(moveaxis)\n        6    0.000    0.000    0.000    0.000 _index.py:298(_validate_indices)\n       13    0.000    0.000    0.000    0.000 _base.py:1695(_get_index_dtype)\n       13    0.000    0.000    0.000    0.000 _sputils.py:263(get_index_dtype)\n       36    0.000    0.000    0.000    0.000 numeric.py:1427(normalize_axis_tuple)\n        1    0.000    0.000    0.000    0.000 _matrix.py:120(getrow)\n\n\n",
+      "implementation": "candidate"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 256,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "489b6835d28b6c267b5a1920d08fb7513a629fed51f46dab6a733107cb114362",
+      "setup_seconds": 0.11231445800513029,
+      "first_call_seconds": 0.01903537497855723,
+      "warm_seconds": [
+        0.019235458923503757,
+        0.01924129098188132,
+        0.01938625006005168,
+        0.019149541039951146,
+        0.018789874971844256,
+        0.01914937503170222,
+        0.019294583005830646
+      ],
+      "median_seconds": 0.019235458923503757,
+      "minimum_seconds": 0.018789874971844256,
+      "maximum_seconds": 0.01938625006005168,
+      "python_traced_peak_bytes": 43268,
+      "fresh_worker_peak_rss_bytes": 64520192,
+      "profile": "         112923 function calls in 0.038 seconds\n\n   Ordered by: cumulative time\n   List reduced from 119 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.038    0.038 core_cases.py:14(call)\n        1    0.000    0.000    0.038    0.038 basis.py:313(evaluate_many)\n      256    0.002    0.000    0.038    0.000 basis.py:294(evaluate)\n      256    0.005    0.000    0.034    0.000 basis.py:268(evaluate_on_tetrahedron)\n      256    0.000    0.000    0.011    0.000 _index.py:29(__getitem__)\n      512    0.001    0.000    0.008    0.000 _compressed.py:30(__init__)\n      256    0.000    0.000    0.008    0.000 _csr.py:274(_get_sliceXarray)\n      256    0.001    0.000    0.008    0.000 _compressed.py:654(_minor_index_fancy)\n      256    0.002    0.000    0.006    0.000 numeric.py:1563(cross)\n      256    0.000    0.000    0.005    0.000 _matrix.py:120(getrow)\n      256    0.000    0.000    0.005    0.000 _csr.py:167(_getrow)\n      768    0.001    0.000    0.004    0.000 _base.py:1695(_get_index_dtype)\n      768    0.001    0.000    0.003    0.000 numeric.py:1489(moveaxis)\n      256    0.001    0.000    0.003    0.000 numeric.py:2320(isclose)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 1024,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "489b6835d28b6c267b5a1920d08fb7513a629fed51f46dab6a733107cb114362",
+      "setup_seconds": 0.17318483302369714,
+      "first_call_seconds": 0.08035183302126825,
+      "warm_seconds": [
+        0.07866041699890047,
+        0.07778266700915992,
+        0.0784643340157345,
+        0.07705241593066603,
+        0.07727929204702377,
+        0.07642562501132488,
+        0.07715812500100583
+      ],
+      "median_seconds": 0.07727929204702377,
+      "minimum_seconds": 0.07642562501132488,
+      "maximum_seconds": 0.07866041699890047,
+      "python_traced_peak_bytes": 80116,
+      "fresh_worker_peak_rss_bytes": 64684032,
+      "profile": "         451611 function calls in 0.152 seconds\n\n   Ordered by: cumulative time\n   List reduced from 119 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.152    0.152 core_cases.py:14(call)\n        1    0.001    0.001    0.152    0.152 basis.py:313(evaluate_many)\n     1024    0.008    0.000    0.151    0.000 basis.py:294(evaluate)\n     1024    0.019    0.000    0.137    0.000 basis.py:268(evaluate_on_tetrahedron)\n     1024    0.002    0.000    0.045    0.000 _index.py:29(__getitem__)\n     2048    0.004    0.000    0.034    0.000 _compressed.py:30(__init__)\n     1024    0.001    0.000    0.032    0.000 _csr.py:274(_get_sliceXarray)\n     1024    0.004    0.000    0.031    0.000 _compressed.py:654(_minor_index_fancy)\n     1024    0.010    0.000    0.025    0.000 numeric.py:1563(cross)\n     1024    0.000    0.000    0.021    0.000 _matrix.py:120(getrow)\n     1024    0.001    0.000    0.021    0.000 _csr.py:167(_getrow)\n     3072    0.002    0.000    0.015    0.000 _base.py:1695(_get_index_dtype)\n     3072    0.004    0.000    0.014    0.000 numeric.py:1489(moveaxis)\n     3072    0.008    0.000    0.012    0.000 _sputils.py:263(get_index_dtype)\n\n\n",
+      "implementation": "baseline"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "N": 1,
+        "degree": 6,
+        "basis_id": 1,
+        "points": 1024,
+        "seed": 633,
+        "arithmetic": "binary64",
+        "cost_scope": "evaluate_many only; basis construction is setup"
+      },
+      "validation": {
+        "passed": true,
+        "reference": "scalar physical Bernstein evaluation",
+        "potential_atol": 2e-12,
+        "curl_atol": 2e-11
+      },
+      "source_sha256": "a0832b8576813c71bb0516c4229c73d4e94eba3a1c1ea6c2d60820add4dab555",
+      "setup_seconds": 0.17481241701170802,
+      "first_call_seconds": 0.004022250068373978,
+      "warm_seconds": [
+        0.0038640410639345646,
+        0.003833124996162951,
+        0.003828458022326231,
+        0.003846583073027432,
+        0.003848999971523881,
+        0.003812542068772018,
+        0.003852125024423003
+      ],
+      "median_seconds": 0.003846583073027432,
+      "minimum_seconds": 0.003812542068772018,
+      "maximum_seconds": 0.0038640410639345646,
+      "python_traced_peak_bytes": 194976,
+      "fresh_worker_peak_rss_bytes": 65454080,
+      "profile": "         3518 function calls in 0.004 seconds\n\n   Ordered by: cumulative time\n   List reduced from 132 to 14 due to restriction <14>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.004    0.004 core_cases.py:14(call)\n        1    0.001    0.001    0.004    0.004 basis.py:313(evaluate_many)\n       96    0.003    0.000    0.003    0.000 basis.py:340(bernstein)\n        6    0.000    0.000    0.000    0.000 _index.py:29(__getitem__)\n        6    0.000    0.000    0.000    0.000 _csr.py:274(_get_sliceXarray)\n        6    0.000    0.000    0.000    0.000 _compressed.py:654(_minor_index_fancy)\n        6    0.000    0.000    0.000    0.000 numeric.py:1563(cross)\n        7    0.000    0.000    0.000    0.000 _compressed.py:30(__init__)\n       48    0.000    0.000    0.000    0.000 numeric.py:675(flatnonzero)\n       96    0.000    0.000    0.000    0.000 numeric.py:170(ones)\n       50    0.000    0.000    0.000    0.000 fromnumeric.py:2474(any)\n       18    0.000    0.000    0.000    0.000 numeric.py:1489(moveaxis)\n       62    0.000    0.000    0.000    0.000 fromnumeric.py:48(_wrapfunc)\n       51    0.000    0.000    0.000    0.000 fromnumeric.py:86(_wrapreduction_any_all)\n\n\n",
+      "implementation": "candidate"
+    }
+  ]
+}

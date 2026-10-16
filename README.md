@@ -192,3 +192,9 @@ CI checks installed wheels on Linux (Python 3.11 and 3.13) and macOS (Python
 MIT licensed. Cite the version using [CITATION.cff](CITATION.cff), and cite
 the manuscript when using the mathematical construction. [NOTICE.md](NOTICE.md)
 records the source lineage and ChatGPT/Codex assistance.
+
+## Core optimization evidence
+
+See the [paired time and memory benchmark](bench/README.md) for profiles,
+independent checks, limitations and reproduction commands, and
+[release readiness](docs/RELEASE_READINESS.md) for installed-package evidence.

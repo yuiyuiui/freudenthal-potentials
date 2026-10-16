@@ -324,8 +324,58 @@ class PotentialBasis:
         if not np.all(np.isfinite(points)) or np.any(points < 0) or np.any(points > 1):
             raise ValueError("All points must lie in [0,1]^3")
         value, curl = np.empty_like(points), np.empty_like(points)
-        for i, point in enumerate(points):
-            value[i], curl[i] = self.evaluate(basis_id, point)
+        if not len(points):
+            return value, curl
+        alpha, beta, raised, am, bm = _evaluation_tables(self.space.d)
+        # Bound temporary power tables instead of allocating one for every point.
+        batch = max(1, min(128, 32768 // max(len(alpha), len(beta))))
+        row = self.coefficients.getrow(basis_id)
+        N, d = self.space.mesh.N, self.space.d
+        orders = tuple(permutations(range(3)))
+        lookup = np.zeros(27, dtype=np.int64)
+        for i, order in enumerate(orders):
+            lookup[9 * order[0] + 3 * order[1] + order[2]] = i
+        pieces = {}
+
+        def bernstein(lam, indices, multipliers):
+            weights = np.ones((len(lam), len(indices)))
+            for axis in range(4):
+                weights *= lam[:, axis, None] ** indices[None, :, axis]
+            weights *= multipliers
+            return weights
+
+        for start in range(0, len(points), batch):
+            stop = min(start + batch, len(points))
+            y = N * points[start:stop]
+            cell = np.minimum(np.floor(y).astype(np.int64), N - 1)
+            rem = y - cell
+            order = np.argsort(-rem, axis=1, kind="stable")
+            codes = 9 * order[:, 0] + 3 * order[:, 1] + order[:, 2]
+            tets = 6 * ((cell[:, 0] * N + cell[:, 1]) * N + cell[:, 2]) + lookup[codes]
+            r = np.take_along_axis(rem, order, axis=1)
+            lam = np.column_stack((1 - r[:, 0], r[:, 0] - r[:, 1],
+                                   r[:, 1] - r[:, 2], r[:, 2]))
+            for tet in np.unique(tets):
+                tet = int(tet)
+                if tet not in pieces:
+                    nodes = self.space.local_to_global[tet]
+                    cols = (3 * nodes[:, None] + np.arange(3)).ravel()
+                    coeff = row[:, cols].toarray().reshape(-1, 3)
+                    gradients = self.space.mesh.gradients[tet]
+                    curl_coeff = d * N * np.cross(gradients, coeff[raised]).sum(axis=1)
+                    if len(pieces) == 8:
+                        pieces.pop(next(iter(pieces)))
+                    pieces[tet] = coeff, curl_coeff
+                coeff, curl_coeff = pieces[tet]
+                selected = np.flatnonzero(tets == tet)
+                target = start + selected
+                if not np.any(coeff):
+                    value[target] = 0
+                    curl[target] = 0
+                    continue
+                local = lam[selected]
+                value[target] = bernstein(local, alpha, am) @ coeff
+                curl[target] = bernstein(local, beta, bm) @ curl_coeff
         return value, curl
 
     def support_tetrahedra(self, basis_id: int) -> np.ndarray:
