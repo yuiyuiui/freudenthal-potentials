@@ -1,82 +1,34 @@
-# Matched policy benchmarks
+# Paired core benchmark
 
-These are finite software measurements, not stability or optimality claims.
-Use the installed package on Linux or macOS. The driver records dependency
-versions, implementation and fixed-witness hashes, source commit/dirty state,
-effective configurations, selection reasons, timings, storage, peak process
-RSS and exact validation results. No random input or seed is used.
+Baseline `8e16007c3439875dadfdeb65fc458932b255fc95` and candidate source hashes are recorded in
+[raw results](results/core_v0.2.1.json), including all samples, validation,
+settings, dependency versions and profiles. macOS arm64, CPython 3.13.3, one
+worker and one BLAS/OpenMP thread. 7 warm repetitions per case.
 
-```bash
-OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
-  python bench/benchmark_policy.py \
-    --output numerical_case/results/policy-1 --repetitions 3
+| Case | Baseline median s | Candidate median s | Ratio | Python peak B (old/new) | Process RSS B (old/new) |
+|---|---:|---:|---:|---:|---:|
+| small | 0.00117479 | 0.000425375 | 2.76x | 39232 / 55632 | 64782336 / 64700416 |
+| medium | 0.0192355 | 0.00116329 | 16.54x | 43268 / 135160 | 64520192 / 65159168 |
+| large | 0.0772793 | 0.00384658 | 20.09x | 80116 / 194976 | 64684032 / 65454080 |
+
+Profiles identified per-point CSR extraction and polynomial evaluation overhead. Bounded point batches group by tetrahedron, reuse at most eight local coefficient pieces per call and contract Bernstein weights. Scalar evaluation is retained as an independent reference; input arrays are unchanged and no cache survives the call. Dot-product reassociation can change roundoff; value/curl tolerances are explicit in tests.
+
+Setup/import, first call, warm calls, separate allocation and separate profiling
+passes are distinguished. Validation is outside timed regions; process RSS
+includes imports, input and validation. Python tracemalloc excludes untraced
+native allocations. These finite cases do not prove an asymptotic or universal speed/memory gain.
+Timing noise and hardware matter; small RSS changes are not interpreted as gains.
+The remaining arithmetic/BLAS kernels dominate larger workloads.
+
+```sh
+git worktree add --detach ../freudenthal-potentials-baseline 8e16007c3439875dadfdeb65fc458932b255fc95
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python bench/benchmark_core.py \
+  --repeats 7 --baseline-source ../freudenthal-potentials-baseline/src \
+  --output /tmp/freudenthal-potentials-core.json
 ```
 
-The output must be fresh. Selected results are retained in
-[`results/policy_v0.2.0.json`](results/policy_v0.2.0.json); large generated
-arrays and disposable execution outputs stay in ignored `numerical_case/results/`.
-All existing mathematical figures and their reproduction commands remain in
-[`numerical_case/`](../numerical_case/README.md).
+The output path must be new. Install the package's development dependencies first;
+SVD also needs Boost >=1.89 and C++17. Each variant imports the specified source
+in a fresh worker. Performance thresholds are not enforced on shared CI.
 
-The four fixed problems exercise every automatic construction branch:
-`(N,d)=(1,6),(1,7),(2,7),(5,6)`. Each is run with:
-
-1. Only the problem inputs, using the default policy.
-2. An explicit compatible branch and a matching ambient-variable admission cap.
-3. Modular verification at alternate supported prime `1000033`.
-4. Deferred optional verification, followed by an explicit full check.
-
-All configurations finish the same membership, locality and finite
-independence requirements. Default, pinned and deferred configurations must
-have identical coefficient/owner hashes. An alternate modulus can choose a
-different valid basis; matching dimensions and successful full checks are
-required and exact basis equality is reported separately. The unit suite also
-checks independent constraint ranks and analytical physical fields.
-
-Each observation uses a fresh child process, sequentially, with one native
-thread. Constructor timings include parameter selection, preprocessing,
-certificate/rule loading and checks. Deferred verification time is included
-in the validated total; its constructor-only time is not advertised as an
-equally validated speedup. A separate whole-process time includes imports and
-Python startup. Peak RSS is process high water, including the interpreter and
-imports, not incremental workspace or a RAM bound. CSR storage counts data,
-indices and row pointers, excluding owners and Python objects.
-
-No warm-up is discarded: the benchmark deliberately measures cold first
-requests. Configuration order rotates across repetitions. The default three
-samples per configuration are a bounded comparison on one host; scheduling,
-cache and allocator variation still affect timing. These results do not show
-that any policy is universally fastest. Repeating costs scales with the
-number of repetitions. Defaults for correctness do not depend on these times.
-
-The bounded CI command omits the window case and uses one observation per
-configuration:
-
-```bash
-python bench/benchmark_policy.py --smoke --repetitions 1 \
-  --output numerical_case/results/policy-smoke-1
-```
-
-`--repetitions` supports integers 1..5. `--smoke` changes the benchmark's case
-set, not an API problem or verification guarantee. Resource admission for the
-full benchmark should account for the `N=6` fixed reference used by window
-transfer; API `max_variables` is not a whole-process memory cap.
-
-## Selected v0.2.0 measurements
-
-Three cold-process observations per configuration on the recorded macOS/arm64
-host; entries below are median **fully validated** seconds. Full samples,
-process RSS, configuration reasons and implementation hashes are in the JSON.
-
-| `(N,d)` | Default | Pinned | Alternate modulus | Deferred + full check |
-|---|---:|---:|---:|---:|
-| `(1,6)` | 0.0118 | 0.0119 | 0.0111 | 0.0114 |
-| `(1,7)` | 0.0358 | 0.0358 | 0.0356 | 0.0350 |
-| `(2,7)` | 1.3800 | 1.3938 | 1.3999 | 1.4069 |
-| `(5,6)` | 2.6666 | 2.6845 | 2.7062 | 2.7101 |
-
-All 48 observations completed full checks and returned coefficient/owner
-hashes identical to the corresponding default. The small timing differences
-on this host do not establish a universally fastest policy. In particular,
-the parametric case uses a large fixed rule table: an ambient-variable
-admission cap does not bound its table-loading memory.
+Earlier policy benchmarks: [original guide](README.previous.md).

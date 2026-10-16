@@ -8,7 +8,7 @@ from .basis import PotentialBasis, construct_basis, dimension
 from .geometry import BernsteinSpace, Mesh
 from .policy import ConstructionPlan, plan_construction
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 __all__ = [
     "BernsteinSpace",

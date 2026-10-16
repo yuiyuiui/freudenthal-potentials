@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 (release candidate)
+
+Group point evaluation into bounded tetrahedron batches and reuse sparse local pieces per call. Retain scalar evaluation as an independent reference and test mutation, facets and empty inputs.
+Public mathematical contracts are unchanged.
+
+
 ## 0.2.0 — 2026-10-15
 
 - Shared inspectable `plan_construction` policy and installed CLI; existing

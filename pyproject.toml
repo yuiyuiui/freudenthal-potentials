@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "freudenthal-potentials"
-version = "0.2.0"
+version = "0.2.1"
 description = "Vertex-star-supported polynomial potential bases on Freudenthal meshes"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -47,3 +47,9 @@ addopts = "-ra"
 [tool.ruff]
 line-length = 100
 extend-exclude = ["src/freudenthal/_certificate_check", "numerical_case/results"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/freudenthal/geometry.py" = ["E741"] # Conventional barycentric coordinate l.
